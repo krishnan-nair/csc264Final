@@ -1,0 +1,29 @@
+body{
+    background-color: black;
+}
+
+.container{
+    background-color: white;
+    padding-top: 3%;
+}
+
+
+#greeting{
+    margin-bottom: 5%;
+}
+
+#email{
+    width: 212%;
+}
+
+input{
+    width: 100%;
+}
+
+#sign-up{
+    padding:4%;
+}
+
+#button{
+    padding-top: 2%;
+}
