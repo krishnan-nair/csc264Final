@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the Student Information Database!</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+
+                  <div class="col-sm" id="signup">
+                    <h4>New Users<br>Sign Up!</h4><br />
+                    <form id="signup-form">
+                      <div class="input-field">
+                        <label for="signup-email">Email address</label><br>
+                        <input type="email" id="signup-email" required />
+                      </div>
+                      <div class="input-field">
+                        <label for="signup-password">Choose password</label><br>
+                        <input type="password" id="signup-password" required />
+                      </div>
+                      <button class="btn btn-secondary">Sign-Up</button>
+                    </form>
+                  </div>
+
+                  <div class="col-sm">
+                    <h4>Existing Users<br>Log-In!</h4><br />
+                    <form id="login-form">
+                      <div class="input-field">
+                        <label for="login-email">Email address</label><br>
+                        <input type="email" id="login-email" required />
+                      </div>
+                      <div class="input-field">
+                        <label for="login-password">Choose password</label><br>
+                        <input type="password" id="login-password" required />
+                      </div>
+                      <button class="btn btn-secondary">Log-In</button>
+                    </form>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBgCM-0hE-VjNH0BmHltAI3vADSB_J_Dkw",
+            authDomain: "first-project-eddec.firebaseapp.com",
+            databaseURL: "https://first-project-eddec.firebaseio.com",
+            projectId: "first-project-eddec",
+            storageBucket: "first-project-eddec.appspot.com",
+            messagingSenderId: "221780316808",
+            appId: "1:221780316808:web:3a74984795ffef1a4d053d",
+            measurementId: "G-TN2LX8Q3DE"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore()
+
+        // db.settings({ timestampsInSnapshots: true});
+        </script>
+        
+        <script src="auth.js"></script>
+</body>
+</html>
