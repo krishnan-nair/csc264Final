@@ -44,7 +44,7 @@
         </div>
 
         <div class="row">
-            <p>Graduation Year: <span class="grad-year">2023</span></p>
+            <p>Graduation Year: <span class="year">2023</span></p>
         </div>
 
         <div class="row">
@@ -66,6 +66,36 @@
             </ul>
         </div>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCZDfQlqWMK9C5JU_aR8DVDsSYBQJMveBc",
+            authDomain: "firestore-assignment-2-fef33.firebaseapp.com",
+            databaseURL: "https://firestore-assignment-2-fef33.firebaseio.com",
+            projectId: "firestore-assignment-2-fef33",
+            storageBucket: "firestore-assignment-2-fef33.appspot.com",
+            messagingSenderId: "26504132717",
+            appId: "1:26504132717:web:db5257f9c099187324a764"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+    
+   <script src="scripts/getUserInfo.js"></script>
    
 </body>
 </html>
