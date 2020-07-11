@@ -83,8 +83,8 @@
                         <input type="text" id="major" name="major">
                     </div>
                     <div class="col-3">
-                        <label for="grad-year">Graduation Year:</label><br>
-                        <input type="text" id="grad-year" name="grad-year">
+                        <label for="year">Graduation Year:</label><br>
+                        <input type="text" id="year" name="year">
                     </div>
                 </div>
 
@@ -101,31 +101,49 @@
                         <input type="text" id="username" name="username">
                     </div>
                     <div class="col-3">
-                        <label for="confirm-username">Confirm Username:</label><br>
-                        <input type="text" id="confirm-username" name="confirm-username">
-                    </div>
-                </div>
-
-                <div class ="row">
-                    <div class="col-3">
                         <label for="password">Create Password:</label><br>
                         <input type="text" id="password" name="password">
-                    </div>
-                    <div class="col-3">
-                        <label for="confirm-password">Confirm Password:</label><br>
-                        <input type="text" id="confirm-password" name="confirm-password">
                     </div>
                 </div>
 
                 <div class="row" id="button">
                     <div class="col-3">
-                        <button class="btn btn-secondary" type="submit">
+                        <button class="btn btn-secondary">
                             Submit
                         </button>
                     </div>
                 </div>
         </form>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCZDfQlqWMK9C5JU_aR8DVDsSYBQJMveBc",
+            authDomain: "firestore-assignment-2-fef33.firebaseapp.com",
+            databaseURL: "https://firestore-assignment-2-fef33.firebaseio.com",
+            projectId: "firestore-assignment-2-fef33",
+            storageBucket: "firestore-assignment-2-fef33.appspot.com",
+            messagingSenderId: "26504132717",
+            appId: "1:26504132717:web:db5257f9c099187324a764"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+   <script src="scripts/signup.js"></script>
    
 </body>
 </html>
