@@ -17,6 +17,7 @@
                 <a class="nav-item nav-link" href="postQuestions.html">Post Questions</a>
                 <a class="nav-item nav-link" href="viewQuestions.html">View Questions</a>
                 <a class="nav-item nav-link" href="contactUs.html">Contact Us</a>
+                <a class="nav-item nav-link" href="#" id="logout">Log-Out</a>
             </div>
         </div>
     </nav>
@@ -32,11 +33,7 @@
         </div>
 
         <div class="row">
-            Search Bar Here
-        </div>
-
-        <div class="row">
-            <div class=".col-3">
+            <div class=".col-5" id="filterCard">
                 <div class="indent">
                     <div class="card">
                         <form action="submit" id="filter">
@@ -56,14 +53,16 @@
                 </div>
             </div>
 
-            <div class=".col-8">
-                <div class="indent">
+            <div class=".col-5" id="shift">
+                <div class="card" id="results">
                     <h4><u>Top Results</u></h4> <br>
                     <ul id="question-list"></ul>
                 </div>
+ 
             </div>
         </div>
 
+    </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
@@ -95,6 +94,7 @@
 
    <script src="scripts/viewQuestions.js"></script>
    <script src="scripts/filter.js"></script>
+   <script src="scripts/logout.js"></script>
 
    
 </body>

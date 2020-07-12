@@ -2,6 +2,30 @@
     min-width: 75vw;
 }
 
+
 #question-list{
     min-width: 30vw;
+}
+
+.card{
+    min-width: 15vw;
+    padding: 8%;
+    border: 1px solid black;
+    box-shadow : 0px 0px 5px 0px black;
+}
+
+.card input{
+    max-width: 12vw;
+}
+#results{
+    min-width: 60vw;
+    padding: 1%;
+}
+
+#filterCard{
+    padding-bottom: 2%;
+}
+#shift{
+    margin-left: 4%;
+    padding-bottom: 3%;
 }

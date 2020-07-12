@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contactUs.css">
+    <title>Contact Us</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- insert company logo here -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="account.html">User Account</a>
+                <a class="nav-item nav-link" href="postQuestions.html">Post Questions</a>
+                <a class="nav-item nav-link" href="viewQuestions.html">View Questions</a>
+                <a class="nav-item nav-link" href="contactUs.html">Contact Us</a>
+                <a class="nav-item nav-link" href="#" id="logout">Log-Out</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" id="content">
+        <div class="row">
+            <h3 class="header">
+                We'd love to get in touch with our students!
+            </h3> <br>
+        </div>
+
+        <div class="row">
+            <h6>
+                Please fill out the form below.
+            </h6>
+        </div>
+
+        <div class="row">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeq0_QWsfg2DwoFNKknjM7sCTJLQwo51PMlm7gkhGFX3UQA0w/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCZDfQlqWMK9C5JU_aR8DVDsSYBQJMveBc",
+            authDomain: "firestore-assignment-2-fef33.firebaseapp.com",
+            databaseURL: "https://firestore-assignment-2-fef33.firebaseio.com",
+            projectId: "firestore-assignment-2-fef33",
+            storageBucket: "firestore-assignment-2-fef33.appspot.com",
+            messagingSenderId: "26504132717",
+            appId: "1:26504132717:web:db5257f9c099187324a764"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+   <script src="scripts/postQuestions.js"></script>
+   <script src="scripts/logout.js"></script>
+   
+</body>
+</html>
