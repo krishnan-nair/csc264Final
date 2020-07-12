@@ -3,9 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/viewQuestions.css">
+    <title>Post Questions</title>
 </head>
 <body>
-    Hey!
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- insert company logo here -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="account.html">User Account</a>
+                <a class="nav-item nav-link" href="postQuestions.html">Post Questions</a>
+                <a class="nav-item nav-link" href="viewQuestions.html">View Questions</a>
+                <a class="nav-item nav-link" href="contactUs.html">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" id="content">
+        <div class="row">
+            <h3 class="header">
+                <span>Preparing for an interview?</span><br>
+                <span>You've come to the right place.</span><br><br>
+                <span>Search through hundres of </span><br>
+                <span>interview questions from top companies below!</span>
+            </h3>
+        </div>
+
+        <div class="row">
+            Search Bar Here
+        </div>
+
+        <div class="row">
+            <div class=".col-3">
+                <div class="indent">
+                    <div class="card">
+                        <form action="submit" id="filter">
+                            <h5>Filter By:</h5><br>
+                            <h6>Tags:</h6>
+                            <input type="text" id="keywords" name="keywords">
+                            <p>Current Tags:</p>
+                            <ul class="indent" id="tag-list"></ul>
+                            <h6>Companies:</h6>
+                            <input type="text" id="companies" name="companies">
+                            <p>Current Companies:</p>
+                            <ul class="indent" id="company-list"></ul>
+                            <button class="btn btn-secondary" type="submit">Submit</button>
+                            <button class="btn btn-secondary" type="reset">Reset</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class=".col-8">
+                <div class="indent">
+                    <h4><u>Top Results</u></h4> <br>
+                    <ul id="question-list"></ul>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCZDfQlqWMK9C5JU_aR8DVDsSYBQJMveBc",
+            authDomain: "firestore-assignment-2-fef33.firebaseapp.com",
+            databaseURL: "https://firestore-assignment-2-fef33.firebaseio.com",
+            projectId: "firestore-assignment-2-fef33",
+            storageBucket: "firestore-assignment-2-fef33.appspot.com",
+            messagingSenderId: "26504132717",
+            appId: "1:26504132717:web:db5257f9c099187324a764"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+   <script src="scripts/viewQuestions.js"></script>
+   <script src="scripts/filter.js"></script>
+
+   
 </body>
 </html>
