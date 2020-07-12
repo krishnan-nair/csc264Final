@@ -32,44 +32,49 @@
             </h3>
         </div>
 
-        <div class="row">
-            <p>Name: <span class="firstName"></span><span class="lastName"></span></p>
-        </div>
+        <form action="submit">
+            <div class="block">
+                <div class="row">
+                    <h6>Type your question in the box below:</h6>
+                </div>
+                <div class="row">
+                    <textarea name="question" id="question" cols="100" rows="2"></textarea>
+                </div>
+            </div>
 
-        <div class="row">
-            <p>username: <span class="username"></span></p>
-        </div>
+            <div class="block">
+                <div class="row">
+                    <h6>Is your question related to a specific topic? Include a 
+                        <span>
+                            <a href='#' data-toggle="tooltip" title="Tags are referring to keywords that would make filtering questions easier.">
+                                tag
+                            </a>
+                        </span>
+                        below:
+                    </h6>
+                </div>
 
-        <div class="row">
-            <p>email: <span class="email"></span></p><br>
-        </div>
+                <div class="row">
+                    <p>Please separate tags by commas. Example tag: technical, Java</p>
+                </div>
+                <div class="row">
+                    <textarea name="keywords" id="keywords" cols="50" rows="2"></textarea>
+                </div>
+            </div>
 
-        <div class="row">
-            <p>Major: <span class="major"></span></p>
-        </div>
+            <div class="block">
+                <div class="row">
+                    <h6>What company did you interview with?</h6>
+                </div>
+                <div class="row">
+                    <textarea name="question" id="question" cols="50" rows="2"></textarea>
+                </div>
+            </div>
 
-        <div class="row">
-            <p>Graduation Year: <span class="year"></span></p>
-        </div>
-
-        <div class="row">
-            <p class="small">
-                <span>Need to reset your password?</span><br>
-                 <a href="">Click here </a>
-                 <span>and we'll email you a link to do so</span>
-            </p>
-        </div>
-
-        <div class="row" id="questions">
-            <h5>Questions You've Contributed</h5>
-        </div>
-        <div class="row">
-            <ul id="question-list">
-                <li>What are your greatest weaknesses?</li>
-                <li class="indent">Keywords: <span class="keywords">weaknesses</span></li>
-                <li class="indent">Company <span class="company">JP Morgan Chase</span></li>
-            </ul>
-        </div>
+            <div class="row">
+                <button class="btn btn-secondary">Submit</button>
+            </div> 
+        </form>
     </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
