@@ -43,6 +43,53 @@ firebase.auth().onAuthStateChanged(function(user) {
             .catch(function(error) {
                 console.log("Error getting documents: ", error);
             });
+
+            db.collection("postquestions").where("email", "==", dbemail).get().then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    let li = document.createElement('li');
+                    let question = document.createElement('li')
+                    let keywords = document.createElement('li');
+                    let company = document.createElement('li');
+
+                    keywords.classList.add('indent');
+                    company.classList.add('indent');
+
+                    li.setAttribute('data-id', doc.id);
+                    question.setAttribute('data-id','question');
+                    keywords.setAttribute('data-id','keywords');
+                    company.setAttribute('data-id','company');
+
+
+                    var data = doc.data();
+                    let dbquestion = data.question;
+                    let dbkeyword = data.keyword;
+                    let dbcompany = data.company;
+        
+
+                    var questionDetails = {1:[question,dbquestion],
+                        2:[keywords,'Keywords: ' + dbkeyword],
+                        3:[company,'Company: ' + dbcompany],
+                    }
+        
+                    for (i in questionDetails) {
+                        if (i){
+                            (questionDetails[i][0]).textContent = questionDetails[i][1];
+                        }
+                        else{
+                            console.log("error");
+                        }
+                    }
+
+                    li.appendChild(question);
+                    li.appendChild(keywords);
+                    li.appendChild(company);
+            
+                    document.querySelector('#question-list').appendChild(li);
+                });
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+            });
         };
     }
 });

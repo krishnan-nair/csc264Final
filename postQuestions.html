@@ -32,7 +32,7 @@
             </h3>
         </div>
 
-        <form action="submit">
+        <form action="submit" id="post-question">
             <div class="block">
                 <div class="row">
                     <h6>Type your question in the box below:</h6>
@@ -67,7 +67,7 @@
                     <h6>What company did you interview with?</h6>
                 </div>
                 <div class="row">
-                    <textarea name="question" id="question" cols="50" rows="2"></textarea>
+                    <textarea name="company" id="company" cols="50" rows="2"></textarea>
                 </div>
             </div>
 
@@ -105,7 +105,7 @@
         const db = firebase.firestore();
     </script>
 
-   <script src="scripts/account.js"></script>
+   <script src="scripts/postQuestions.js"></script>
    
 </body>
 </html>
