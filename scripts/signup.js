@@ -13,8 +13,8 @@ form.addEventListener('submit',(e) => {
     auth.createUserWithEmailAndPassword(email,password).then(cred =>{
         console.log(cred)
         db.collection('users').add({
-            firstName: form.first-name.value,
-            lastName: form.last-name.value,
+            firstName: form.firstName.value,
+            lastName: form.lastName.value,
             major: form.major.value,
             year: form.year.value,
             username: form.username.value,
