@@ -76,13 +76,13 @@
                     </div>
                     <div class="col-3">
                         <label for="password">Create Password:</label><br>
-                        <input type="text" id="password" name="password">
+                        <input type="password" id="password" name="password">
                     </div>
                 </div>
 
                 <div class="row" id="button">
                     <div class="col-3">
-                        <button class="btn btn-secondary">
+                        <button class="btn btn-secondary" type="submit">
                             Submit
                         </button>
                     </div>
@@ -117,7 +117,7 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
     </script>
-   <script src="scripts/signup.js"></script>
+   <script defer src="scripts/signup.js"></script>
    
 </body>
 </html>

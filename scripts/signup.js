@@ -11,19 +11,22 @@ form.addEventListener('submit',(e) => {
     
     // sign up the user
     auth.createUserWithEmailAndPassword(email,password).then(cred =>{
-        console.log(cred)
         db.collection('users').add({
             firstName: form.firstName.value,
             lastName: form.lastName.value,
             major: form.major.value,
             year: form.year.value,
             username: form.username.value,
-            email: form.email.value,
+            email: form.email.value
+        }).then(function(){
+            alert('You have successfully joined our team!');
+            open('viewQuestions.html',"_self");
+        }).catch(function(error){
+            alert(error.message);
         });
-        alert('You have successfully joined our team!');
-        open('viewQuestions.html',"_self")
     }).catch(function(error){
         alert(error.message);
     })
+
 
 })

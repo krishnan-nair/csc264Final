@@ -21,6 +21,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 let dbquestion = data.question;
                 let dbkeyword = data.keyword;
                 let dbcompany = data.company;
+                let email = data.email;
     
 
                 var questionDetails = {1:[question,dbquestion],
@@ -37,52 +38,47 @@ firebase.auth().onAuthStateChanged(function(user) {
                     }
                 }
 
-                li.appendChild(question);
-                li.appendChild(keywords);
-                li.appendChild(company);
-        
-                document.querySelector('#question-list').appendChild(li);
+
+                // Getting username from submitted question
+                db.collection("users").where("email", "==", email).get().then(function(querySnapshot) {
+                    querySnapshot.forEach(function(doc) {
+                        var data = doc.data();
+                        let dbusername = data.username;
+                        let dbmajor = data.major;
+
+                        let username = document.createElement('li');
+                        let major = document.createElement('li');
+
+                        username.classList.add('indent');
+                        major.classList.add('indent');
+
+                        var questionDetails = {2:[username,'Submitted by: ' + dbusername],
+                            3:[major,'Major: ' + dbmajor],
+                        }
+
+                        for (i in questionDetails) {
+                            if (i){
+                                (questionDetails[i][0]).textContent = questionDetails[i][1];
+                            }
+                            else{
+                                console.log("error");
+                            }
+                        }
+
+                        li.appendChild(question);
+                        li.appendChild(keywords);
+                        li.appendChild(company);
+                        li.appendChild(username);
+                        li.appendChild(major);
+                
+                        document.querySelector('#question-list').appendChild(li);
+                    });          
+                });
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
             });
-        })
-        .catch(function(error) {
-            console.log("Error getting documents: ", error);
-        });
-
-        // Getting username from submitted question
-        var user = firebase.auth().currentUser;
-        dbemail = user.email;
-        db.collection("users").where("email", "==", dbemail).get().then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                var data = doc.data();
-                let dbusername = data.username;
-                let dbmajor = data.major;
-
-                let username = document.createElement('li');
-                let major = document.createElement('li');
-
-                username.classList.add('indent');
-                major.classList.add('indent');
-
-                var questionDetails = {2:[username,'Submitted by: ' + dbusername],
-                    3:[major,'Major: ' + dbmajor],
-                }
-
-                for (i in questionDetails) {
-                    if (i){
-                        (questionDetails[i][0]).textContent = questionDetails[i][1];
-                    }
-                    else{
-                        console.log("error");
-                    }
-                }
-
-                let questionList = document.querySelector('#company')
-                questionList.appendChild(username);
-                questionList.appendChild(major);
-            });
-        })
-        .catch(function(error) {
-            console.log("Error getting documents: ", error);
         });
     };
 });
+

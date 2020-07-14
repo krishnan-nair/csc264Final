@@ -1,5 +1,7 @@
 body{
     background-color:	#c27b6a;
+    max-width: 100vw;
+    font-weight: 500;
 }
 
 .container{
