@@ -3,10 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Document</title>
 </head>
 <body>
     <p>Test</p>
     <p>;rjfwherfh;aefvase</p>
+=======
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <title>Welcome!</title>
+</head>
+<body>    
+    <div class="container">
+        <div class="row">
+            <div id="content">
+                <div id="add-tint">
+                    <div class="row">
+                        <div class="col align-self-center">
+                            <h2 class="header">Welcome to the Student Interview Database!</h2>
+                        </div>
+                    </div>
+            
+               
+                    <div class="row" id="pad">
+                        <div class="card">
+                            <div class="card-body" id="login">
+                                <h4>Existing Users Log-In Here!</h4><br />
+                                <form id="login-form">
+                                    <div class="input-field">
+                                        <label for="login-email">Enter Email Address:</label><br>
+                                        <input type="email" id="login-email" required /><br>
+                                        <a href="">Forgot email?</a>
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="login-password">Enter Password</label><br>
+                                        <input type="password" id="login-password" required /><br>
+                                        <a href="">Forgot Password?</a>
+                                    </div>
+                                    <button class="btn btn-secondary">Log-In</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row" id="signup">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Don't Have an Account Yet?</h4>
+                                <button class="btn btn-secondary" id="signUp">Sign-Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="mission">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Our Company Mission</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptate suscipit, praesentium pariatur nisi molestias, fuga ab dignissimos doloremque vero rem a cumque in temporibus sapiente voluptas soluta sunt eveniet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+       <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+   
+   
+       <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+   
+       <script>
+           // Your web app's Firebase configuration
+           var firebaseConfig = {
+               apiKey: "AIzaSyCZDfQlqWMK9C5JU_aR8DVDsSYBQJMveBc",
+               authDomain: "firestore-assignment-2-fef33.firebaseapp.com",
+               databaseURL: "https://firestore-assignment-2-fef33.firebaseio.com",
+               projectId: "firestore-assignment-2-fef33",
+               storageBucket: "firestore-assignment-2-fef33.appspot.com",
+               messagingSenderId: "26504132717",
+               appId: "1:26504132717:web:db5257f9c099187324a764"
+           };
+           // Initialize Firebase
+           firebase.initializeApp(firebaseConfig);
+   
+           // make auth and firestore references
+           const auth = firebase.auth();
+           const db = firebase.firestore();
+       </script>
+      
+      <script src="scripts/login.js"></script>
+      <script src="scripts/signUpClick.js"></script>
+>>>>>>> homepage
 </body>
 </html>

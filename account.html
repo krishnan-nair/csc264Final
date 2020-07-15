@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/account.css">
+    <title>User Account</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- insert company logo here -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="account.html">User Account</a>
+                <a class="nav-item nav-link" href="postQuestions.html">Post Questions</a>
+                <a class="nav-item nav-link" href="viewQuestions.html">View Questions</a>
+                <a class="nav-item nav-link" href="contactUs.html">Contact Us</a>
+                <a class="nav-item nav-link" href="#" id="logout">Log-Out</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" id="content">
+        <div class="row">
+            <h2 class="header"><span class="firstName">Hey</span>, here's a look at your user information</h2>
+        </div>
+
+        <div class="row">
+            <p>Name: <span class="firstName"></span><span class="lastName"></span></p>
+        </div>
+
+        <div class="row">
+            <p>username: <span class="username"></span></p>
+        </div>
+
+        <div class="row">
+            <p>email: <span class="email"></span></p><br>
+        </div>
+
+        <div class="row">
+            <p>Major: <span class="major"></span></p>
+        </div>
+
+        <div class="row">
+            <p>Graduation Year: <span class="year"></span></p>
+        </div>
+
+        <div class="row">
+            <p class="small">
+                <span>Need to reset your password?</span><br>
+                 <a href="">Click here </a>
+                 <span>and we'll email you a link to do so</span>
+            </p>
+        </div>
+
+        <div class="row" id="questions">
+            <h5>Questions You've Contributed</h5>
+        </div>
+        <div class="row">
+            <div class="col-4">
+              <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">test</div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...erf</div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">..ef.</div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...erf</div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+            <ul id="question-list">
+            </ul>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCZDfQlqWMK9C5JU_aR8DVDsSYBQJMveBc",
+            authDomain: "firestore-assignment-2-fef33.firebaseapp.com",
+            databaseURL: "https://firestore-assignment-2-fef33.firebaseio.com",
+            projectId: "firestore-assignment-2-fef33",
+            storageBucket: "firestore-assignment-2-fef33.appspot.com",
+            messagingSenderId: "26504132717",
+            appId: "1:26504132717:web:db5257f9c099187324a764"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+
+   <script src="scripts/account.js"></script>
+   <script src="scripts/logout.js"></script>
+   <script src="scripts/bootstrap.js"></script>
+   
+</body>
+</html>

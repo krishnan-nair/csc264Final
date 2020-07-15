@@ -1,0 +1,13 @@
+.header{
+    border: none;
+    box-shadow: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+.row{
+    padding-left: 5%;
+}
+
+#questions{
+    padding-top: 4%;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Welcome!</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" href="#">Welcome</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        </div>
+    </nav>
+    
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col align-self-center">
+                <h2 class="header">
+                    <span class="row" id="greeting">
+                        <div class="col align-self-center">
+                            We're glad to have you on board!
+                        </div>
+                    </span>
+                    <span class="row" id="fill-out">
+                        <div class="col align-self-center">
+                            Fill out this form below to get started!
+                        </div>
+                    </span>
+                </h2>
+            </div>
+        </div>
+
+        
+        <form action="submit" id="sign-up">
+            <h6>Please complete this form to create an account, receive email updates, and much more</h6><br>
+                <div class ="row">
+                    <div class="col-3">
+                        <label for="firstName">First Name:</label><br>
+                        <input type="text" id="firstName" name="firstName">
+                    </div>
+                    <div class="col-3">
+                        <label for="lastName">Last Name:</label><br>
+                        <input type="text" id="lastName" name="lastName">
+                    </div>
+                </div>
+
+                <div class ="row">
+                    <div class="col-3">
+                        <label for="major">Major of Study:</label><br>
+                        <input type="text" id="major" name="major">
+                    </div>
+                    <div class="col-3">
+                        <label for="year">Graduation Year:</label><br>
+                        <input type="text" id="year" name="year">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="email">Email Address:</label><br>
+                        <input type="text" id="email" name="email">
+                    </div>
+                </div>
+
+                <div class ="row">
+                    <div class="col-3">
+                        <label for="username">Create Username:</label><br>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="col-3">
+                        <label for="password">Create Password:</label><br>
+                        <input type="password" id="password" name="password">
+                    </div>
+                </div>
+
+                <div class="row" id="button">
+                    <div class="col-3">
+                        <button class="btn btn-secondary" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+        </form>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCZDfQlqWMK9C5JU_aR8DVDsSYBQJMveBc",
+            authDomain: "firestore-assignment-2-fef33.firebaseapp.com",
+            databaseURL: "https://firestore-assignment-2-fef33.firebaseio.com",
+            projectId: "firestore-assignment-2-fef33",
+            storageBucket: "firestore-assignment-2-fef33.appspot.com",
+            messagingSenderId: "26504132717",
+            appId: "1:26504132717:web:db5257f9c099187324a764"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+   <script defer src="scripts/signup.js"></script>
+   
+</body>
+</html>
