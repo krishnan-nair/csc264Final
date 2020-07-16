@@ -41,7 +41,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         .catch(function(error) {
             console.log("Error getting documents: ", error);
         });
-
+		
+		document.querySelector('#question-list').innerHTML = '';
         db.collection("postquestions").where("email", "==", dbemail).get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
 				
@@ -76,7 +77,6 @@ firebase.auth().onAuthStateChanged(function(user) {
                 contain.appendChild(head);
                 contain.appendChild(question);
 				
-				document.querySelector('#question-list').innerHTML = '';
                 document.querySelector('#question-list').appendChild(contain);
             });
         })
