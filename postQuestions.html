@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/postQuestions.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>Post Questions</title>
 </head>
 <body>
@@ -58,7 +61,7 @@
                     <p>Please separate tags by commas. Example tag: technical, Java</p>
                 </div>
                 <div class="row">
-                    <textarea name="keywords" id="keywords" cols="50" rows="2"></textarea>
+                    <input type="text" name="keywords">
                 </div>
             </div>
 
@@ -67,7 +70,9 @@
                     <h6>What company did you interview with?</h6>
                 </div>
                 <div class="row">
-                    <textarea name="company" id="company" cols="50" rows="2"></textarea>
+                    <div class="ui-widget">
+                        <input type="text" id="tags" name="company">
+                    </div>
                 </div>
             </div>
 
@@ -105,8 +110,9 @@
         const db = firebase.firestore();
     </script>
 
-   <script src="scripts/postQuestions.js"></script>
-   <script src="scripts/logout.js"></script>
+    <script src="scripts/acCompanies.js"></script>
+    <script src="scripts/postQuestions.js"></script>
+    <script src="scripts/logout.js"></script>
    
 </body>
 </html>

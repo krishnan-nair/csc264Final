@@ -22,11 +22,10 @@ firebase.auth().onAuthStateChanged(function(user) {
                 keyword: keywordArray,
                 company: form.company.value,
 
+            }).catch(function(error){
+                alert(error.message);
             });  
             alert('Your question was successfully uploaded!');
-        })
-        .catch(function(error){
-            alert(error.message);
         })
     
     }
