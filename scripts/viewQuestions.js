@@ -3,15 +3,15 @@ firebase.auth().onAuthStateChanged(function(user) {
         // Getting questions from database
         db.collection("postquestions").get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-                let li = document.createElement('li');
-                let question = document.createElement('li')
-                let keywords = document.createElement('li');
-                let company = document.createElement('li');
+                let h5 = document.createElement('p');
+                let question = document.createElement('p')
+                let keywords = document.createElement('p');
+                let company = document.createElement('p');
 
                 keywords.classList.add('indent');
                 company.classList.add('indent');
 
-                li.setAttribute('id', doc.id);
+                h5.setAttribute('id', doc.id);
                 question.setAttribute('id','question');
                 keywords.setAttribute('id','keywords');
                 company.setAttribute('id','company');
@@ -46,8 +46,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                         let dbusername = data.username;
                         let dbmajor = data.major;
 
-                        let username = document.createElement('li');
-                        let major = document.createElement('li');
+                        let username = document.createElement('p');
+                        let major = document.createElement('p');
 
                         username.classList.add('indent');
                         major.classList.add('indent');
@@ -65,19 +65,18 @@ firebase.auth().onAuthStateChanged(function(user) {
                             }
                         }
 
-                        li.appendChild(question);
-                        li.appendChild(keywords);
-                        li.appendChild(company);
-                        li.appendChild(username);
-                        li.appendChild(major);
+                        h5.appendChild(question);
+                        h5.appendChild(keywords);
+                        h5.appendChild(company);
+                        h5.appendChild(username);
+                        h5.appendChild(major);
                 
-                        document.querySelector('#question-list').appendChild(li);
+                        document.querySelector('#question-list').appendChild(h5);
                     });          
                 });
             })
-            .catch(function(error) {
-                console.log("Error getting documents: ", error);
-            });
+        }).catch(function(error) {
+            console.log("Error getting documents: ", error);
         });
     };
 });
