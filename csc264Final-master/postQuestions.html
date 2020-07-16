@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/postQuestions.css">
+    <title>Post Questions</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- insert company logo here -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="account.html">User Account</a>
+                <a class="nav-item nav-link" href="postQuestions.html">Post Questions</a>
+                <a class="nav-item nav-link" href="viewQuestions.html">View Questions</a>
+                <a class="nav-item nav-link" href="contactUs.html">Contact Us</a>
+                <a class="nav-item nav-link" href="#" id="logout">Log-Out</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" id="content">
+        <div class="row">
+            <h3 class="header">
+                <span>You've officially done it.</span><br>
+                <span>The interview.</span><br><br>
+                <span>Now help millions of other students prepare</span><br>
+                <span>by posting your questions below!</span>
+            </h3>
+        </div>
+
+        <form action="submit" id="post-question">
+            <div class="block">
+                <div class="row">
+                    <h6>Type your question in the box below:</h6>
+                </div>
+                <div class="row">
+                    <textarea name="question" id="question" cols="100" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="row">
+                    <h6>Is your question related to a specific topic? Include a 
+                        <span>
+                            <a href='#' data-toggle="tooltip" title="Tags are referring to keywords that would make filtering questions easier.">
+                                tag
+                            </a>
+                        </span>
+                        below:
+                    </h6>
+                </div>
+
+                <div class="row">
+                    <p>Please separate tags by commas. Example tag: technical, Java</p>
+                </div>
+                <div class="row">
+                    <textarea name="keywords" id="keywords" cols="50" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="row">
+                    <h6>What company did you interview with?</h6>
+                </div>
+                <div class="row">
+                    <textarea name="company" id="company" cols="50" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-secondary">Submit</button>
+            </div> 
+        </form>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCZDfQlqWMK9C5JU_aR8DVDsSYBQJMveBc",
+            authDomain: "firestore-assignment-2-fef33.firebaseapp.com",
+            databaseURL: "https://firestore-assignment-2-fef33.firebaseio.com",
+            projectId: "firestore-assignment-2-fef33",
+            storageBucket: "firestore-assignment-2-fef33.appspot.com",
+            messagingSenderId: "26504132717",
+            appId: "1:26504132717:web:db5257f9c099187324a764"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+   <script src="scripts/postQuestions.js"></script>
+   <script src="scripts/logout.js"></script>
+   
+</body>
+</html>
