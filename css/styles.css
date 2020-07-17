@@ -30,3 +30,8 @@ button{
 .indent{
     margin-left: 15%;
 }
+
+.box{
+    border: 1px solid black;
+    margin-left: none;
+}

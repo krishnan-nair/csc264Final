@@ -1,4 +1,5 @@
 function addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany) {
+    // adding questions to main question list------------------------
     let h5 = document.createElement('h5');
     let question = document.createElement('p');
     let keywords = document.createElement('p');
@@ -12,8 +13,6 @@ function addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany) {
     keywords.setAttribute('id','keywords');
     company.setAttribute('id','company');
 
-
-
     var questionDetails = {1:[question,dbquestion],
         2:[keywords,'Keywords: ' + dbkeyword],
         3:[company,'Company: ' + dbcompany],
@@ -21,7 +20,7 @@ function addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany) {
 
     for (i in questionDetails) {
         if (i){
-            (questionDetails[i][0]).textContent = questionDetails[i][1];
+            (questionDetails[i][0]).innerText = questionDetails[i][1];
         }
         else{
             console.log("error");
@@ -32,7 +31,29 @@ function addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany) {
     h5.appendChild(keywords);
     h5.appendChild(company);
 
-    return document.querySelector('#question-list').appendChild(h5); 
+    document.querySelector('#question-list').appendChild(h5); 
+}
+
+function updateFilterList(keyword,company){
+    // adding keywords and companies to filtered tags list
+    let inputKeywords = document.createElement('li');
+    let inputCompanies = document.createElement('li');
+
+    // inputKeywords.classList.add('btn btn-secondary');
+    // inputCompanies.classList.add('btn btn-secondary');
+
+    inputKeywords.innerText = keyword;
+    inputCompanies.innerText = company;
+
+    var keywordFilter = document.querySelector('#keyword-list');
+    var companyFilter = document.querySelector('#company-list');
+
+    if (keyword!=''){
+        keywordFilter.appendChild(inputKeywords);
+    }
+    if (company!=''){
+        companyFilter.appendChild(inputCompanies);
+    }   
 }
 
 function removeExistingQuestions() {
@@ -91,6 +112,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                             addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany);
                         });
                     })
+                    updateFilterList(keywordArray[0],companyArray[i]);
                 }
             }
             else if (keywordArray[0] != "" && companyArray[0] == ""){
@@ -105,6 +127,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                             addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany);
                         });
                     })
+                    updateFilterList(keywordArray[k],companyArray[0]);
                 }
             }
             else{
@@ -122,7 +145,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                                         if (dbcompany == companyArray[i]){
                                             for (k in dbkeywordArray){
                                                 if (dbkeywordArray[k]===keywordArray[j]){
-                                                    addFilteredQuestion(doc,dbquestion,keywordArray[j],companyArray[i]);                
+                                                    addFilteredQuestion(doc,dbquestion,keywordArray[j],companyArray[i]);               
                                                 }
                                             }
                                         }
@@ -132,6 +155,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                                 });
                             });
                         })
+                        updateFilterList(keywordArray[j],companyArray[i]);
                     }
                 }
             }
@@ -140,4 +164,30 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
             
         
+form.addEventListener('reset',(e) => {
+    e.preventDefault();
 
+    // gets list of keywords from DOM
+    keywordList = document.getElementById('keyword-list');
+
+    // removes current questions shown on the page
+    while (keywordList.hasChildNodes()) {  
+        keywordList.removeChild(keywordList.firstChild);
+    } 
+
+    // gets list of companies from DOM
+    companyList = document.getElementById('company-list');
+
+    // removes current companies shown on the page
+    while (companyList.hasChildNodes()) {  
+        companyList.removeChild(companyList.firstChild);
+    } 
+
+    // makes the input fields empty after submitting
+    document.getElementById('keywords').value = '';
+    document.getElementById('companies').value = '';
+
+    // refreshes the page to apply changes and show original list of questions
+    location.reload();
+
+});
