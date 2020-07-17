@@ -22,8 +22,10 @@ firebase.auth().onAuthStateChanged(function(user) {
                 keyword: keywordArray,
                 company: form.company.value,
 
+            }).then(function(){
+                alert('Your question was successfully uploaded!');
+                open('viewQuestions.html',"_self");
             });  
-            alert('Your question was successfully uploaded!');
         })
         .catch(function(error){
             alert(error.message);

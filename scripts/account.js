@@ -41,10 +41,11 @@ firebase.auth().onAuthStateChanged(function(user) {
         .catch(function(error) {
             console.log("Error getting documents: ", error);
         });
-
+		
+		document.querySelector('#question-list').innerHTML = '';
         db.collection("postquestions").where("email", "==", dbemail).get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-
+				
                 let contain = document.createElement('div');
                 let head = document.createElement('div')
                 let question = document.createElement('span')
