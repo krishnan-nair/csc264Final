@@ -1,5 +1,5 @@
 function addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany) {
-    // adding questions to main question list------------------------
+    // adding questions to main question list
     let h5 = document.createElement('h5');
     let question = document.createElement('p');
     let keywords = document.createElement('p');
@@ -115,6 +115,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     updateFilterList(keywordArray[0],companyArray[i]);
                 }
             }
+            // case where there is only an input for keyword
             else if (keywordArray[0] != "" && companyArray[0] == ""){
                 for (k in keywordArray){
                     removeExistingQuestions();
@@ -130,6 +131,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     updateFilterList(keywordArray[k],companyArray[0]);
                 }
             }
+            // case where there is an inputed keyword and company
             else{
                 for (i in companyArray){
                     for (j in keywordArray){
