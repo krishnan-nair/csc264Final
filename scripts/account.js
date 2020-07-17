@@ -44,45 +44,39 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         db.collection("postquestions").where("email", "==", dbemail).get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-                let li = document.createElement('li');
-                let question = document.createElement('li')
-                let keywords = document.createElement('li');
-                let company = document.createElement('li');
 
-                keywords.classList.add('indent');
-                company.classList.add('indent');
+                let contain = document.createElement('div');
+                let head = document.createElement('div')
+                let question = document.createElement('span')
+                let keywords = document.createElement('span');
+                let company = document.createElement('span');
+				
+				
+				
+                contain.setAttribute('class','question-container');
+                question.setAttribute('class','question');
+                head.setAttribute('class','head');
+                keywords.setAttribute('class','keywords');
+                company.setAttribute('class','company');
 
-                li.setAttribute('data-id', doc.id);
-                question.setAttribute('data-id','question');
-                keywords.setAttribute('data-id','keywords');
-                company.setAttribute('data-id','company');
-
+				
 
                 var data = doc.data();
                 let dbquestion = data.question;
                 let dbkeyword = data.keyword;
                 let dbcompany = data.company;
-    
-
-                var questionDetails = {1:[question,dbquestion],
-                    2:[keywords,'Keywords: ' + dbkeyword],
-                    3:[company,'Company: ' + dbcompany],
-                }
-    
-                for (i in questionDetails) {
-                    if (i){
-                        (questionDetails[i][0]).textContent = questionDetails[i][1];
-                    }
-                    else{
-                        console.log("error");
-                    }
-                }
-
-                li.appendChild(question);
-                li.appendChild(keywords);
-                li.appendChild(company);
-        
-                document.querySelector('#question-list').appendChild(li);
+				
+				
+				question.innerHTML = '&#10077;' + dbquestion + '&#10078;';
+				keywords.innerHTML = 'Keywords: ' + dbkeyword;
+				company.innerHTML = dbcompany + ' asked...';
+				
+                head.appendChild(company);
+                head.appendChild(keywords);
+                contain.appendChild(head);
+                contain.appendChild(question);
+				
+                document.querySelector('#question-list').appendChild(contain);
             });
         })
         .catch(function(error) {

@@ -14,6 +14,21 @@ button{
     padding-top: 3%;
     min-height: 100vh;
 }
+
+.flex-row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.user-info {
+	flex: 30%;
+	padding-left: 60px;
+}
+
+.questions-contributed{
+	flex: 70%;
+}
+
 .header{
     background-color: white;
     padding: 2%;
@@ -29,9 +44,4 @@ button{
 
 .indent{
     margin-left: 15%;
-}
-
-.box{
-    border: 1px solid black;
-    margin-left: none;
 }
