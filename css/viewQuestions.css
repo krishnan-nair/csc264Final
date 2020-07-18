@@ -4,8 +4,9 @@
 
 
 #question-list{
-    min-width: 30vw;
-    padding: none;
+    min-width: 50vw;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .question-container{
