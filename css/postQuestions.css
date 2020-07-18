@@ -17,3 +17,7 @@ form{
 .header{
     min-width: 75vw;
 }
+
+input{
+    max-width: 12vw;
+}

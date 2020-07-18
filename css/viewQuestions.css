@@ -5,6 +5,14 @@
 
 #question-list{
     min-width: 30vw;
+    padding: none;
+}
+
+.question-container{
+    margin-top: 1%;
+    border: none;
+    box-shadow : 0px 3px 10px 0px black;
+
 }
 
 .card{
@@ -18,12 +26,13 @@
     max-width: 12vw;
 }
 #results{
-    min-width: 60vw;
+    max-width: 70vw;
     padding: 1%;
 }
 
 #filterCard{
     padding-bottom: 2%;
+    margin-left: 1%;
 }
 #shift{
     margin-left: 4%;

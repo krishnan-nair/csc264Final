@@ -1,37 +1,56 @@
-function addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany) {
-    // adding questions to main question list
-    let h5 = document.createElement('h5');
-    let question = document.createElement('p');
-    let keywords = document.createElement('p');
-    let company = document.createElement('p');
+function addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany,dbemail) {
+    let contain = document.createElement('div');
+    let head = document.createElement('div');
+    let foot = document.createElement('div')
+    let question = document.createElement('span');
+    let keywords = document.createElement('span');
+    let company = document.createElement('span');
+    
+    
+    
+    contain.setAttribute('class','question-container');
+    question.setAttribute('class','question');
+    head.setAttribute('class','head');
+    keywords.setAttribute('class','keywords');
+    company.setAttribute('class','company');
 
-    keywords.classList.add('indent');
-    company.classList.add('indent');
+    
+    question.innerHTML = '&#10077;' + dbquestion + '&#10078;';
+    keywords.innerHTML = 'Keywords: ' + dbkeyword;
+    company.innerHTML = dbcompany + ' asked...';
+    
 
-    h5.setAttribute('id', doc.id);
-    question.setAttribute('id','question');
-    keywords.setAttribute('id','keywords');
-    company.setAttribute('id','company');
 
-    var questionDetails = {1:[question,dbquestion],
-        2:[keywords,'Keywords: ' + dbkeyword],
-        3:[company,'Company: ' + dbcompany],
-    }
+    // Getting username from submitted question
+    db.collection("users").where("email", "==", dbemail).get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            var data = doc.data();
+            let dbusername = data.username;
+            let dbmajor = data.major;
 
-    for (i in questionDetails) {
-        if (i){
-            (questionDetails[i][0]).innerText = questionDetails[i][1];
-        }
-        else{
-            console.log("error");
-        }
-    }
+            let username = document.createElement('span');
+            let major = document.createElement('span');
 
-    h5.appendChild(question);
-    h5.appendChild(keywords);
-    h5.appendChild(company);
+            username.classList.add('foot');
+            major.classList.add('foot');
 
-    document.querySelector('#question-list').appendChild(h5); 
+            username.innerText = 'Submitted by: ' + dbusername;
+            major.innerText = 'Major: ' + dbmajor;
+
+
+            head.appendChild(company);
+            head.appendChild(keywords);
+            foot.appendChild(username);
+            foot.appendChild(major);
+            contain.appendChild(head);
+            contain.appendChild(question);
+            contain.appendChild(foot);
+            
+            document.querySelector('#question-list').appendChild(contain);    
+        });
+    }).catch(function(error) {
+    console.log("Error getting documents: ", error);
+    });
 }
 
 function updateFilterList(keyword,company){
@@ -109,7 +128,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                             dbquestion = doc.data().question;
                             dbcompany = doc.data().company;
                             dbkeyword = doc.data().keyword;
-                            addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany);
+                            dbemail = doc.data().email;
+                            addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany,dbemail);
                         });
                     })
                     updateFilterList(keywordArray[0],companyArray[i]);
@@ -125,7 +145,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                             dbquestion = doc.data().question;
                             dbcompany = doc.data().company;
                             dbkeyword = doc.data().keyword;
-                            addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany);
+                            dbemail = doc.data().email;
+                            addFilteredQuestion(doc,dbquestion,dbkeyword,dbcompany,dbemail);
                         });
                     })
                     updateFilterList(keywordArray[k],companyArray[0]);
@@ -143,11 +164,12 @@ firebase.auth().onAuthStateChanged(function(user) {
                                         dbquestion = doc.data().question;
                                         dbkeywordArray = doc.data().keyword;
                                         dbcompany = doc.data().company;
+                                        dbemail = doc.data().email;
                                         
                                         if (dbcompany == companyArray[i]){
                                             for (k in dbkeywordArray){
                                                 if (dbkeywordArray[k]===keywordArray[j]){
-                                                    addFilteredQuestion(doc,dbquestion,keywordArray[j],companyArray[i]);               
+                                                    addFilteredQuestion(doc,dbquestion,keywordArray[j],companyArray[i],dbemail);               
                                                 }
                                             }
                                         }

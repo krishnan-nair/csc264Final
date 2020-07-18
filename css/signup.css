@@ -1,9 +1,6 @@
-#greeting{
-    margin-bottom: 5%;
-}
 
 #email{
-    width: 212%;
+    width: 150%;
 }
 
 input{
@@ -12,6 +9,7 @@ input{
 
 #sign-up{
     padding:4%;
+    padding-top: 0;
 }
 
 #button{
