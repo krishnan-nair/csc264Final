@@ -10,7 +10,7 @@ loginForm.addEventListener('submit', (e) => {
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         .then(function() {
-            open('account.html',"_self");
+            open('viewQuestions.html',"_self");
     }).catch(function(error){
         alert(error.message);
     })});
