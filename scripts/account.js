@@ -1,3 +1,7 @@
+var target;
+
+const editForm = document.querySelector('#edit-form');
+
 firebase.auth().onAuthStateChanged(function(user) {
     var user = firebase.auth().currentUser;
     if (user!=null) {
@@ -51,14 +55,22 @@ firebase.auth().onAuthStateChanged(function(user) {
                 let question = document.createElement('span')
                 let keywords = document.createElement('span');
                 let company = document.createElement('span');
+				let edit = document.createElement('button');
+				let deletebutton = document.createElement('button');
+				let buttonrow = document.createElement('div');
 				
 				
 				
+				
+                contain.setAttribute('data-id',doc.id);
                 contain.setAttribute('class','question-container');
                 question.setAttribute('class','question');
                 head.setAttribute('class','head');
                 keywords.setAttribute('class','keywords');
                 company.setAttribute('class','company');
+                edit.setAttribute('class','btn btn-dark form-button');
+                deletebutton.setAttribute('class','btn btn-dark form-button');
+                buttonrow.setAttribute('class','button-row');
 
 				
 
@@ -71,11 +83,33 @@ firebase.auth().onAuthStateChanged(function(user) {
 				question.innerHTML = '&#10077;' + dbquestion + '&#10078;';
 				keywords.innerHTML = 'Keywords: ' + dbkeyword;
 				company.innerHTML = dbcompany + ' asked...';
+				edit.innerHTML = "Edit";
+				deletebutton.innerHTML = "Delete";
 				
                 head.appendChild(company);
                 head.appendChild(keywords);
                 contain.appendChild(head);
                 contain.appendChild(question);
+                buttonrow.appendChild(edit);
+                buttonrow.appendChild(deletebutton);
+                contain.appendChild(buttonrow);
+				
+				edit.addEventListener('click', (e) => {
+					target = e.target.parentElement.parentElement.getAttribute('data-id');
+					db.collection('postquestions').doc(target).get().then( (snapshot) => {
+						editForm['question-field'].value = snapshot.data().question;
+						editForm['keyword-field'].value = snapshot.data().keyword;
+						editForm['company-field'].value = snapshot.data().company;
+					});
+				});
+				edit.setAttribute('data-toggle', 'modal');
+				edit.setAttribute('data-target', '#editmodal');//show the modal for editing
+				
+				deletebutton.addEventListener('click', (e) => {
+					target = e.target.parentElement.parentElement.getAttribute('data-id');
+				});
+				deletebutton.setAttribute('data-toggle', 'modal');
+				deletebutton.setAttribute('data-target', '#deletemodal');//show the modal for editing
 				
                 document.querySelector('#question-list').appendChild(contain);
             });
@@ -85,4 +119,36 @@ firebase.auth().onAuthStateChanged(function(user) {
         });
     };
 });
+
+
+document.querySelector('#submit-edit').addEventListener('click', (e) => {
+	var keywordVals = editForm['keyword-field'].value;
+	var keywordArray = [];
+	
+	if (keywordVals.includes(',')){
+		keywordArray = keywordVals.split(', ');
+	}
+	else{
+		keywordArray[0] = keywordVals;
+	}
+	db.collection('postquestions').doc(target).update({
+		question: editForm['question-field'].value,
+		keywords: keywordArray,
+		company: editForm['company-field'].value
+	}).then(function(){
+		alert('Your question was successfully uploaded!');
+		location.reload();
+	}); 
+});
+
+
+document.querySelector('#submit-delete').addEventListener('click', (e) => {
+	db.collection('postquestions').doc(target).delete().then(function(){
+		alert('Your question was successfully deleted!');
+		location.reload();
+	}); 
+});
+
+
+
 

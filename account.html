@@ -27,7 +27,43 @@
             </div>
         </div>
     </nav>
-    
+	
+    <div class="modal" id="editmodal">
+		<div class="modal-content">
+			<h4>Edit Your Submission</h4>
+			<form id="edit-form">
+				<div class="input-field">
+					<textarea name="question" id="question-field"></textarea>
+				</div>
+				<div class="even-justify">
+					<div>
+						<label for="keyword-field">Keywords</label>
+						<input type="text" id="keyword-field">
+					</div>
+					<div>
+						<label for="company-field">Company</label>
+						<input type="text" id="company-field">
+					</div>
+					<div></div>
+				</div>
+				<div>
+					<button class="btn btn-dark" id="submit-edit" data-dismiss="modal">Submit</button>
+					<button class="btn btn-dark" id="cancel-edit" data-dismiss="modal">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<div class="modal" id="deletemodal">
+		<div class="modal-content center-justify">
+			<h4>Are You Sure?</h4>
+			<form class="center-justify">
+				<button class="btn btn-dark" id="submit-delete" data-dismiss="modal">Yes</button>
+				<button class="btn btn-dark" id="cancel-delete" data-dismiss="modal">No</button>
+			</form>
+		</div>
+	</div>
+	
     <div class="container" id="content">
 	
 		<div class="row" id="header-row">
